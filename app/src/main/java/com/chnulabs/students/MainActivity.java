@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBtnClick(View view)
     {
-        Spinner spinner = (Spinner) findViewById(R.id.spinner5);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
         String grpNumb = (String) spinner.getSelectedItem();
 
         Intent intent = new Intent(this, StudentsListActivity.class);
@@ -71,5 +70,12 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         isRunning = false;
     }
+    public void onGrpBtnClick(View view){
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        String grpNumb = (String) spinner.getSelectedItem();
 
+        Intent intent = new Intent(this, StudentsGroupActivity.class);
+        intent.putExtra(StudentsGroupActivity.GROUP_NUMBER, grpNumb);
+        startActivity(intent);
+    }
 }
